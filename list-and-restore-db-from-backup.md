@@ -1,3 +1,7 @@
+* Show SQL version
+```
+select @@VERSION
+```
 First step is to list which datafiles are in the backup set
 * For a single file
 ```
