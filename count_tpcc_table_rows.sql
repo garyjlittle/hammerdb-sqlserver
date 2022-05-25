@@ -4,7 +4,7 @@ Count the rows in each table
 
 select count (*) as "customer table" from customer ;
 GO
-#select count (*) as "orders table" from orders;
+select count (*) as "orders table" from orders;
 GO
 select count (*) as "order_line table" from order_line;
 GO
