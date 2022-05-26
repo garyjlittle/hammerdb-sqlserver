@@ -6,7 +6,7 @@ select count (*) as "customer table" from customer ;
 GO
 select count (*) as "orders table" from orders;
 GO
-select count (*) as "order_line table" from order_line;
+select big_count (*) as "order_line table" from order_line;
 GO
 select count (*) as "item table" from item; 
 GO
