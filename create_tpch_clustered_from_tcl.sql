@@ -1,4 +1,7 @@
--- clustered db
+---
+-- Create a TPCH schema on sqlserver with clustered columnstore type db
+-- Uses maxdop of 16, change this to whatever maxdop you want
+-- creates tables, indexes and constraints
 use [tpch-test];
 create table dbo.customer (c_custkey bigint not null, c_mktsegment char(10) null, c_nationkey int null, c_name varchar(25) null, c_address varchar(40) null, c_phone char(15) null, c_acctbal money null, c_comment varchar(118) null, index cust_cs clustered columnstore);
 create table dbo.lineitem (l_shipdate date null, l_orderkey bigint not null, l_discount money not null, l_extendedprice money not null, l_suppkey int not null, l_quantity bigint not null, l_returnflag char(1) null, l_partkey bigint not null, l_linestatus char(1) null, l_tax money not null, l_commitdate date null, l_receiptdate date null, l_shipmode char(10) null, l_linenumber bigint not null, l_shipinstruct char(25) null, l_comment varchar(44) null, index lineit_cs clustered columnstore);
