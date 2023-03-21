@@ -11,3 +11,4 @@ Set the DB options to "bulk_logging" - this option together with the "batchsize=
 4. [Bulk load the database from flat files (multiple files per table)](https://github.com/garyjlittle/hammerdb-sqlserver/blob/a1a73d07cdd64fe553f9770860eb9bcdb83c0462/tpch-3a-bulkload-all-multifile.sql)
 
 
+
