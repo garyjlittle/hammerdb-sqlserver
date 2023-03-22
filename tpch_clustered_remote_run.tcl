@@ -1,5 +1,7 @@
 #
-# tcl to run tpch.
+# tcl to run tpch. "scale_fact" should match the scale factor used to create the DB. 
+# "maxdop" should match the maxdop of the DB or the number of CPU on the server.
+# for a standard TPCH run a vu count of "1" is normal.
 #
 dbset db mssqls
 dbset bm tpc-h
