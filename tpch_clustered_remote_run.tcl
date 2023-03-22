@@ -1,3 +1,6 @@
+#
+# tcl to run tpch.
+#
 dbset db mssqls
 dbset bm tpc-h
 diset connection mssqls_server 10.57.16.42
