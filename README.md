@@ -12,4 +12,14 @@ Set the DB options to "bulk_logging" - this option together with the "batchsize=
 3. [Bulk load the database from flat files (multiple files per table)](https://github.com/garyjlittle/hammerdb-sqlserver/blob/a1a73d07cdd64fe553f9770860eb9bcdb83c0462/tpch-3a-bulkload-all-multifile.sql)
 
 
+## Running TPCH from CLI using powershell
+To repeat TPCH several times and get output of the runtime - use the `runhammerdb.ps1` script.  Its output looks like this
+```
+PS C:\Program Files\HammerDB-4.2> C:\Users\Administrator\Documents\runhammerdb.ps1
+Starting HammerDB run
+Run 1 00:01:08.5776556 3/22/2023 9:48:19 AM
+Run 2 00:01:07.4687548 3/22/2023 9:49:27 AM
+Run 3 00:01:05.3722079 3/22/2023 9:50:35 AM
+Run 4 00:01:08.9840419 3/22/2023 9:51:40 AM
+```
 
