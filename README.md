@@ -22,4 +22,44 @@ Run 2 00:01:07.4687548 3/22/2023 9:49:27 AM
 Run 3 00:01:05.3722079 3/22/2023 9:50:35 AM
 Run 4 00:01:08.9840419 3/22/2023 9:51:40 AM
 ```
+#### scripts
+The powershell script looks like this below - it calls hammerdb with the `auto` parameter and the nane of the `tcl` script that describes the DB and workload `tpch_clustered_remote_run.tcl`
 
+##### powershell (runhammerdb.ps1)
+```
+Write-Host("Starting HammerDB run")
+for ($i=1 ; $i -le 4 ; $i++)
+ {
+    $startTime=(Get-Date)
+    chdir('C:\Program Files\HammerDB-4.2')
+    Start-Process 'C:\Program Files\HammerDB-4.2\hammerdbcli.bat' -ArgumentList "auto tpch_clustered_remote_run.tcl" -Wait
+    $elapsedTime=(Get-Date)-$startTime
+    Write-Host("Run", $i, $elapsedTime,$startTime)
+  }
+```  
+##### tcl  (tpch_clustered_remote_run.tcl)
+```
+dbset db mssqls
+dbset bm tpc-h
+diset connection mssqls_server 10.57.16.42
+diset tpch mssqls_scale_fact         100
+diset tpch mssqls_maxdop             16
+diset tpch mssqls_tpch_dbase         tpch_clustered_100
+diset tpch mssqls_num_tpch_threads   1
+diset tpch mssqls_colstore           false
+diset tpch mssqls_total_querysets    1
+diset tpch mssqls_raise_query_error  false
+diset tpch mssqls_verbose            false
+diset tpch mssqls_refresh_on         false
+diset tpch mssqls_update_sets        1
+diset tpch mssqls_trickle_refresh    1000
+diset tpch mssqls_refresh_verbose    false
+loadscript
+vuset vu 1
+vuset logtotemp 1
+vuset unique 1
+vucreate
+vurun
+runtimer 60
+vudestroy
+```
