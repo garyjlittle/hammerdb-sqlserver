@@ -4,7 +4,7 @@
 dbset db mssqls
 dbset bm tpc-h
 diset connection mssqls_server 10.57.16.42
-diset tpch mssqls_scale_fact         1
+diset tpch mssqls_scale_fact         100
 diset tpch mssqls_maxdop             16
 diset tpch mssqls_tpch_dbase         tpch_non_clustered_100
 diset tpch mssqls_num_tpch_threads   1
