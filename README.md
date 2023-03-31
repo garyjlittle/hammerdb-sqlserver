@@ -15,12 +15,19 @@ Set the DB options to "bulk_logging" - this option together with the "batchsize=
 ## Running TPCH from CLI using powershell
 To repeat TPCH several times and get output of the runtime - use the `runhammerdb.ps1` script.  Its output looks like this
 ```
-PS C:\Program Files\HammerDB-4.2> C:\Users\Administrator\Documents\runhammerdb.ps1
-Starting HammerDB run
-Run 1 00:01:08.5776556 3/22/2023 9:48:19 AM
-Run 2 00:01:07.4687548 3/22/2023 9:49:27 AM
-Run 3 00:01:05.3722079 3/22/2023 9:50:35 AM
-Run 4 00:01:08.9840419 3/22/2023 9:51:40 AM
+C:\Users\Administrator\Documents\runhammerdb.ps1 .\tpch_non_clustered_100.tcl ; C:\Users\Administrator\Documents\runhammerdb.ps1 .\tpch_clustered_100.tcl
+
+Starting HammerDB run for config .\tpch_non_clustered_100.tcl
+Run 1 00:01:20.0874835 3/22/2023 12:37:14 PM
+Run 2 00:01:06.0735787 3/22/2023 12:38:34 PM
+Run 3 00:01:20.0876020 3/22/2023 12:39:40 PM
+Run 4 00:01:20.0869302 3/22/2023 12:41:00 PM
+
+Starting HammerDB run for config .\tpch_clustered_100.tcl
+Run 1 00:01:04.0709585 3/22/2023 12:42:20 PM
+Run 2 00:01:10.0789376 3/22/2023 12:43:24 PM
+Run 3 00:01:06.1586989 3/22/2023 12:44:35 PM
+Run 4 00:01:09.7613099 3/22/2023 12:45:41 PM
 ```
 #### scripts
 The powershell script looks like this below - it calls hammerdb with the `auto` parameter and the nane of the `tcl` script that describes the DB and workload `tpch_clustered_remote_run.tcl`
