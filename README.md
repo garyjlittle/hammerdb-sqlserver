@@ -3,7 +3,10 @@ HammerDB SQL Server scripts and notes
 
 ## Creating and populating a TPC-H Database - manually using flat-files
 
-Set the DB options to "bulk_logging" - this option together with the "batchsize=5000" directive on the bulk-load line gives a 2x speedup.
+* Set the DB options to "bulk_logging" - this option together with the "batchsize=5000" directive on the bulk-load line gives a 2x speedup.
+* For the lineitem table in particular - **create the table, load the data, then apply indexes and constraints**.  This may work for other tables too.
+
+
 
 1.  [Create the physical database files](https://github.com/garyjlittle/hammerdb-sqlserver/blob/b08fbeae8385193a6d95cb2c6fd5b1cc99bd2b12/tpch-1-create-db.sql)
 2.  [Create tables, indexes and constraints](https://github.com/garyjlittle/hammerdb-sqlserver/blob/14ee0122beb70d3a6d987c76096cd96ff7f4471c/tpch-2-create-clustered-tables_index_constraints.sql)
